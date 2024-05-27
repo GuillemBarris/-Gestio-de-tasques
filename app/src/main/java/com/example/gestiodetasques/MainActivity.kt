@@ -1,5 +1,6 @@
 package com.example.gestiodetasques
 
+import android.content.Intent
 import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
@@ -23,8 +24,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setSupportActionBar(binding.toolbar)
+        binding.btcrearTasca.setOnClickListener {
+            val intent = Intent(this, CrearTasca::class.java)
+            startActivity(intent)
+        }
 
     }
+
 
 
 }
