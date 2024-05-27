@@ -6,6 +6,88 @@
     android:layout_height="match_parent">
 
 
+   <TextView
+       android:id="@+id/titol"
+       android:layout_width="50dp"
+       android:layout_height="40dp"
+       android:layout_marginTop="64dp"
+       android:text="Titol"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toTopOf="parent" />
+
+   <EditText
+       android:id="@+id/titol_input"
+       android:layout_width="356dp"
+       android:layout_height="40dp"
+       android:layout_marginStart="4dp"
+       android:layout_marginTop="64dp"
+       app:layout_constraintStart_toEndOf="@id/titol"
+       app:layout_constraintTop_toTopOf="parent" />
+
+   <TextView
+       android:id="@+id/descripcioCurta"
+       android:layout_width="117dp"
+       android:layout_height="40dp"
+       android:layout_marginTop="24dp"
+       android:text="Descripció Curta"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toBottomOf="@id/titol" />
+
+   <EditText
+       android:id="@+id/descripcioCurta_input"
+       android:layout_width="286dp"
+       android:layout_height="40dp"
+
+       android:layout_marginTop="24dp"
+       app:layout_constraintStart_toEndOf="@+id/descripcioCurta"
+       app:layout_constraintTop_toBottomOf="@+id/titol_input" />
+
+   <TextView
+       android:id="@+id/descripcioLlarga"
+       android:layout_width="411dp"
+       android:layout_height="37dp"
+       android:layout_marginTop="16dp"
+       android:text="Descripció Llarga"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toBottomOf="@id/descripcioCurta" />
+
+   <EditText
+       android:id="@+id/descripcioLlarga_input"
+       android:layout_width="411dp"
+       android:layout_height="100dp"
+       android:layout_marginTop="8dp"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toBottomOf="@id/descripcioLlarga" />
+
+   <TextView
+       android:id="@+id/data"
+       android:layout_width="126dp"
+       android:layout_height="30dp"
+       android:layout_marginTop="116dp"
+       android:text="Data"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toBottomOf="@id/descripcioLlarga" />
+
+   <Button
+       android:id="@+id/btnPickDateTime"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_marginTop="108dp"
+       android:layout_marginEnd="56dp"
+       android:text="Seleccionar Data i Hora"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintHorizontal_bias="1.0"
+       app:layout_constraintStart_toEndOf="@+id/data"
+       app:layout_constraintTop_toBottomOf="@+id/descripcioLlarga" />
+    
+    <TextView
+        android:id="@+id/DataSeleccionada"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/data"
+        app:layout_constraintTop_toBottomOf="@+id/btnPickDateTime" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
