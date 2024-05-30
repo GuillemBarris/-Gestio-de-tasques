@@ -16,7 +16,7 @@
        app:layout_constraintTop_toTopOf="parent" />
 
    <EditText
-       android:id="@+id/titol_input"
+       android:id="@+id/titolinput"
        android:layout_width="356dp"
        android:layout_height="40dp"
        android:layout_marginStart="4dp"
@@ -34,13 +34,13 @@
        app:layout_constraintTop_toBottomOf="@id/titol" />
 
    <EditText
-       android:id="@+id/descripcioCurta_input"
+       android:id="@+id/descripcioCurtaInput"
        android:layout_width="286dp"
        android:layout_height="40dp"
 
        android:layout_marginTop="24dp"
        app:layout_constraintStart_toEndOf="@+id/descripcioCurta"
-       app:layout_constraintTop_toBottomOf="@+id/titol_input" />
+       app:layout_constraintTop_toBottomOf="@+id/titolinput" />
 
    <TextView
        android:id="@+id/descripcioLlarga"
@@ -52,7 +52,7 @@
        app:layout_constraintTop_toBottomOf="@id/descripcioCurta" />
 
    <EditText
-       android:id="@+id/descripcioLlarga_input"
+       android:id="@+id/descripcioLlargaInput"
        android:layout_width="411dp"
        android:layout_height="100dp"
        android:layout_marginTop="8dp"
@@ -105,5 +105,14 @@
        app:layout_constraintEnd_toEndOf="parent"
        app:layout_constraintStart_toStartOf="parent"
        app:layout_constraintTop_toBottomOf="@+id/btnSelectImg" />
+   <Button
+       android:id="@+id/btnSaveAll"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_marginTop="8dp"
+       android:text="Guardar La Tasca"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toBottomOf="@+id/ImageView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

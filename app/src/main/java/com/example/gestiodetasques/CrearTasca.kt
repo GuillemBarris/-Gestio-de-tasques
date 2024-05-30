@@ -41,6 +41,17 @@ class CrearTasca : AppCompatActivity() {
             val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
             startActivityForResult(intent, SELECT_IMAGE_REQUEST_CODE)
         }
+        binding.btnSaveAll.setOnClickListener {
+            val tasca = Tasca(
+                binding.titolinput.text.toString(),
+                binding.descripcioCurtaInput.toString(),
+                binding.descripcioLlargaInput.text.toString(),
+                binding.DataSeleccionada.text.toString(),
+            )
+            val database = Database(this)
+            database.insertTask(tasca)
+            finish()
+        }
 
 
     }
