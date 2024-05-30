@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.provider.MediaStore
 import androidx.appcompat.app.AppCompatActivity
 import com.example.gestiodetasques.databinding.CrearTascaBinding
+import java.time.LocalDate
 import java.util.Calendar
 import java.util.UUID
 
@@ -27,7 +28,7 @@ class CrearTasca : AppCompatActivity() {
             val dataPickerDialog = DatePickerDialog(
                 this,
                 { view, year, monthOfYear, dayOfMonth ->
-                    val selectedDate = "$dayOfMonth/${monthOfYear + 1}/$year"
+                    val selectedDate = "$dayOfMonth-${monthOfYear + 1}-$year"
                     binding.DataSeleccionada.text = selectedDate
 
                 },
@@ -44,11 +45,13 @@ class CrearTasca : AppCompatActivity() {
         }
         binding.btnSaveAll.setOnClickListener {
             val imageUid = UUID.randomUUID().toString()
+            val currentDate = LocalDate.now().toString()
             val tasca = Tasca(
                 binding.titolinput.text.toString(),
                 binding.descripcioCurtaInput.text.toString(),
                 binding.descripcioLlargaInput.text.toString(),
                 imageUid,
+                currentDate,
                 binding.DataSeleccionada.text.toString(),
 
 
