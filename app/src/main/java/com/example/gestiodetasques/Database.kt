@@ -18,15 +18,7 @@ class Database(context: Context) : SQLiteOpenHelper(context, Database_Name, null
         private const val Columm_Date_Expected = "Data Prevista"
     }
 
-    val d = getDatabasePath(context)
-    fun getDatabasePath(context: Context): String {
-        val dbFile = context.getDatabasePath(Database_Name)
-        val parentDir = dbFile.parentFile
-        if (!parentDir.exists()) {
-            parentDir.mkdirs()
-        }
-        return dbFile.absolutePath
-    }
+
     override fun onCreate(db: SQLiteDatabase) {
         val Create_Table = ("CREATE TABLE " +
                 Table_Name + "(" +
@@ -37,7 +29,7 @@ class Database(context: Context) : SQLiteOpenHelper(context, Database_Name, null
         )
         db.execSQL(Create_Table)
 
-        d
+
     }
 
 
