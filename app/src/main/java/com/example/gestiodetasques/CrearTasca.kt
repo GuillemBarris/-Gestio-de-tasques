@@ -46,7 +46,7 @@ class CrearTasca : AppCompatActivity() {
             val imageUid = UUID.randomUUID().toString()
             val tasca = Tasca(
                 binding.titolinput.text.toString(),
-                binding.descripcioCurtaInput.toString(),
+                binding.descripcioCurtaInput.text.toString(),
                 binding.descripcioLlargaInput.text.toString(),
                 imageUid,
                 binding.DataSeleccionada.text.toString(),
