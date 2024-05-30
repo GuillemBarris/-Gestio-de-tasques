@@ -13,23 +13,21 @@ class Database(context: Context) : SQLiteOpenHelper(context, Database_Name, null
         private const val Database_Name= "GestioTasques.sqlite"
         private const val Table_Name = "tasques"
         private const val Column_Title = "Titol"
-        private const val Column_Short_Description = "Descripcio Curta"
-        private const val Column_Long_Description = "Descripcio Llarga"
-        private const val Columm_Date_Expected = "Data Prevista"
-    }
+        private const val Column_Short_Description = "Descripcio_Curta"
+        private const val Column_Long_Description = "Descripcio_Llarga"
+        private const val Column_Id_IMG = "ID_Imatge"
+        private const val Columm_Date_Expected = "Data_Prevista"
+   }
 
 
     override fun onCreate(db: SQLiteDatabase) {
-        val Create_Table = ("CREATE TABLE " +
-                Table_Name + "(" +
-                Column_Title + " TEXT," +
-                Column_Short_Description + " TEXT," +
-                Column_Long_Description + " TEXT," +
-                Columm_Date_Expected + " TEXT)"
-        )
+        val Create_Table = ("CREATE TABLE " + Table_Name + " ("
+                + Column_Title +" TEXT, "+
+                Column_Short_Description+" TEXT, "+
+                Column_Long_Description + " TEXT, " +
+                Column_Id_IMG +" TEXT, "+
+                Columm_Date_Expected +" TEXT);")
         db.execSQL(Create_Table)
-
-
     }
 
 
@@ -44,6 +42,7 @@ class Database(context: Context) : SQLiteOpenHelper(context, Database_Name, null
         values.put(Column_Title, tasca.titol)
         values.put(Column_Short_Description, tasca.descripcioCurta)
         values.put(Column_Long_Description, tasca.descripcioLlarga)
+        values.put(Column_Id_IMG, tasca.ID_IMG)
         values.put(Columm_Date_Expected, tasca.dataPrevista)
 
         writableDatabase.use { db ->

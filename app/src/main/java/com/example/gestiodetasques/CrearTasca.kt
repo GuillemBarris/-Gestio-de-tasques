@@ -9,6 +9,7 @@ import android.provider.MediaStore
 import androidx.appcompat.app.AppCompatActivity
 import com.example.gestiodetasques.databinding.CrearTascaBinding
 import java.util.Calendar
+import java.util.UUID
 
 class CrearTasca : AppCompatActivity() {
     private lateinit var binding: CrearTascaBinding
@@ -42,12 +43,17 @@ class CrearTasca : AppCompatActivity() {
             startActivityForResult(intent, SELECT_IMAGE_REQUEST_CODE)
         }
         binding.btnSaveAll.setOnClickListener {
+            val imageUid = UUID.randomUUID().toString()
             val tasca = Tasca(
                 binding.titolinput.text.toString(),
                 binding.descripcioCurtaInput.toString(),
                 binding.descripcioLlargaInput.text.toString(),
+                imageUid,
                 binding.DataSeleccionada.text.toString(),
-            )
+
+
+
+                )
             val database = Database(this)
             database.insertTask(tasca)
             finish()
