@@ -1,18 +1,23 @@
-
-
 package com.example.gestiodetasques
 
 import android.app.DatePickerDialog
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.drawable.BitmapDrawable
 import android.os.Bundle
+import android.os.Environment
 import android.provider.MediaStore
 import androidx.appcompat.app.AppCompatActivity
 import com.example.gestiodetasques.databinding.CrearTascaBinding
+import java.io.File
+import java.io.FileOutputStream
 import java.time.LocalDate
 import java.util.Calendar
 import java.util.UUID
 
 class CrearTasca : AppCompatActivity() {
+
+    
     private lateinit var binding: CrearTascaBinding
 
     companion object {
@@ -59,6 +64,22 @@ class CrearTasca : AppCompatActivity() {
                 )
             val database = Database(this)
             database.insertTask(tasca)
+
+            // crear el bitmap
+             val bitmap = (binding.ImageView.drawable as BitmapDrawable).bitmap
+
+            // guardar la imatge
+            val path = getExternalFilesDir(Environment.DIRECTORY_PICTURES)
+            val out = File(path, "$imageUid.jpg")
+            try{
+                val fos = FileOutputStream(out)
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos)
+                fos.flush()
+                fos.close()
+            } catch (e: Exception){
+                e.printStackTrace()
+            }
+
             finish()
         }
 
