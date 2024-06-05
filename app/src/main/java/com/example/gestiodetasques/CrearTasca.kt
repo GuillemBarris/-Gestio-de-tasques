@@ -58,10 +58,8 @@ class CrearTasca : AppCompatActivity() {
                 imageUid,
                 currentDate,
                 binding.DataSeleccionada.text.toString(),
-
-
-
-                )
+                dataFinal ="",
+                Estat = "Actiu",)
             val database = Database(this)
             database.insertTask(tasca)
 

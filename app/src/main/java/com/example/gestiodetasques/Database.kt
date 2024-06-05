@@ -18,6 +18,8 @@ class Database(context: Context) : SQLiteOpenHelper(context, Database_Name, null
         private const val Column_Id_IMG = "ID_Imatge"
         private const val Column_Date_Creation = "Data_Creacio"
         private const val Columm_Date_Expected = "Data_Prevista"
+        private const val Column_Date_Final ="Data_Finalizada"
+        private const val  Column_State = "Estat"
    }
 
 
@@ -28,7 +30,9 @@ class Database(context: Context) : SQLiteOpenHelper(context, Database_Name, null
                 Column_Long_Description + " TEXT, " +
                 Column_Id_IMG +" TEXT, "+
                 Column_Date_Creation +" TEXT, "+
-                Columm_Date_Expected +" TEXT);")
+                Columm_Date_Expected +" TEXT, "+
+                Column_Date_Final + " TEXT, "+
+                Column_State + " TEXT );")
         db.execSQL(Create_Table)
     }
 
@@ -47,6 +51,7 @@ class Database(context: Context) : SQLiteOpenHelper(context, Database_Name, null
         values.put(Column_Id_IMG, tasca.ID_IMG)
         values.put(Column_Date_Creation, tasca.dataCreacio)
         values.put(Columm_Date_Expected, tasca.dataPrevista)
+        values.put(Column_State, tasca.Estat)
 
         writableDatabase.use { db ->
             db.insert(Table_Name, null, values)

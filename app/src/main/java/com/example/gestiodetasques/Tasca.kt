@@ -6,5 +6,7 @@ data class Tasca(
     val descripcioLlarga: String,
     val  ID_IMG: String,
     val dataCreacio: String,
-    val dataPrevista: String
+    val dataPrevista: String,
+    val dataFinal: String,
+    val Estat: String
 )
