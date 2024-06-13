@@ -3,68 +3,82 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
    <TextView
        android:id="@+id/titol"
-       android:layout_width="50dp"
-       android:layout_height="40dp"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
        android:layout_marginTop="64dp"
        android:text="Titol"
+       android:textSize="18sp"
+       android:textStyle="bold"
        app:layout_constraintStart_toStartOf="parent"
        app:layout_constraintTop_toTopOf="parent" />
 
    <EditText
        android:id="@+id/titolinput"
-       android:layout_width="356dp"
+       android:layout_width="0dp"
        android:layout_height="40dp"
-       android:layout_marginStart="4dp"
+       android:layout_marginStart="8dp"
        android:layout_marginTop="64dp"
+       android:padding="8dp"
+       app:layout_constraintEnd_toEndOf="parent"
        app:layout_constraintStart_toEndOf="@id/titol"
        app:layout_constraintTop_toTopOf="parent" />
 
+
    <TextView
        android:id="@+id/descripcioCurta"
-       android:layout_width="117dp"
-       android:layout_height="40dp"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
        android:layout_marginTop="24dp"
        android:text="Descripció Curta"
+       android:textSize="16sp"
        app:layout_constraintStart_toStartOf="parent"
        app:layout_constraintTop_toBottomOf="@id/titol" />
 
    <EditText
        android:id="@+id/descripcioCurtaInput"
-       android:layout_width="286dp"
+       android:layout_width="0dp"
        android:layout_height="40dp"
-
+       android:layout_marginStart="8dp"
        android:layout_marginTop="24dp"
-       app:layout_constraintStart_toEndOf="@+id/descripcioCurta"
-       app:layout_constraintTop_toBottomOf="@+id/titolinput" />
+       android:padding="8dp"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintStart_toEndOf="@id/descripcioCurta"
+       app:layout_constraintTop_toBottomOf="@id/titolinput" />
+
 
    <TextView
        android:id="@+id/descripcioLlarga"
-       android:layout_width="411dp"
-       android:layout_height="37dp"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
        android:layout_marginTop="16dp"
        android:text="Descripció Llarga"
+       android:textSize="16sp"
        app:layout_constraintStart_toStartOf="parent"
        app:layout_constraintTop_toBottomOf="@id/descripcioCurta" />
 
    <EditText
        android:id="@+id/descripcioLlargaInput"
-       android:layout_width="411dp"
+       android:layout_width="0dp"
        android:layout_height="100dp"
+       android:layout_marginStart="8dp"
        android:layout_marginTop="8dp"
+       android:padding="8dp"
+       app:layout_constraintEnd_toEndOf="parent"
        app:layout_constraintStart_toStartOf="parent"
        app:layout_constraintTop_toBottomOf="@id/descripcioLlarga" />
 
+
    <TextView
        android:id="@+id/data"
-       android:layout_width="126dp"
-       android:layout_height="30dp"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
        android:layout_marginTop="116dp"
        android:text="Data"
+       android:textSize="16sp"
        app:layout_constraintStart_toStartOf="parent"
        app:layout_constraintTop_toBottomOf="@id/descripcioLlarga" />
 
@@ -78,16 +92,17 @@
        app:layout_constraintEnd_toEndOf="parent"
        app:layout_constraintHorizontal_bias="1.0"
        app:layout_constraintStart_toEndOf="@+id/data"
-       app:layout_constraintTop_toBottomOf="@+id/descripcioLlarga" />
-    
-    <TextView
-        android:id="@+id/DataSeleccionada"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/data"
-        app:layout_constraintTop_toBottomOf="@+id/btnPickDateTime" />
+       app:layout_constraintTop_toBottomOf="@id/descripcioLlarga" />
+
+   <TextView
+       android:id="@+id/DataSeleccionada"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_marginTop="8dp"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintStart_toEndOf="@+id/data"
+       app:layout_constraintTop_toBottomOf="@+id/btnPickDateTime" />
+
    <Button
        android:id="@+id/btnSelectImg"
        android:layout_width="wrap_content"
@@ -97,6 +112,7 @@
        app:layout_constraintEnd_toEndOf="parent"
        app:layout_constraintStart_toStartOf="parent"
        app:layout_constraintTop_toBottomOf="@+id/DataSeleccionada" />
+
    <ImageView
        android:id="@+id/ImageView"
        android:layout_width="150dp"
@@ -105,6 +121,7 @@
        app:layout_constraintEnd_toEndOf="parent"
        app:layout_constraintStart_toStartOf="parent"
        app:layout_constraintTop_toBottomOf="@+id/btnSelectImg" />
+
    <Button
        android:id="@+id/btnSaveAll"
        android:layout_width="wrap_content"
@@ -115,4 +132,13 @@
        app:layout_constraintStart_toStartOf="parent"
        app:layout_constraintTop_toBottomOf="@+id/ImageView" />
 
+   <Button
+       android:id="@+id/btnBackToMenu"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_marginBottom="16dp"
+       android:text="Menú"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

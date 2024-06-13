@@ -17,11 +17,11 @@ import java.util.UUID
 
 class CrearTasca : AppCompatActivity() {
 
-    
+
     private lateinit var binding: CrearTascaBinding
 
     companion object {
-        private const val SELECT_IMAGE_REQUEST_CODE = 100
+        const val SELECT_IMAGE_REQUEST_CODE = 100
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,23 +44,35 @@ class CrearTasca : AppCompatActivity() {
             dataPickerDialog.show()
 
         }
+        binding.btnBackToMenu.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
         binding.btnSelectImg.setOnClickListener {
             val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
             startActivityForResult(intent, SELECT_IMAGE_REQUEST_CODE)
         }
         binding.btnSaveAll.setOnClickListener {
+            val idUid = UUID.randomUUID().toString()
             val imageUid = UUID.randomUUID().toString()
             val currentDate = LocalDate.now().toString()
+            val database = Database(this)
+            val order = database.getNextOrderIndex()
             val tasca = Tasca(
+                idUid,
                 binding.titolinput.text.toString(),
                 binding.descripcioCurtaInput.text.toString(),
                 binding.descripcioLlargaInput.text.toString(),
                 imageUid,
                 currentDate,
                 binding.DataSeleccionada.text.toString(),
-                dataFinal ="",
-                Estat = "Actiu",)
-            val database = Database(this)
+                dataFinal = "",
+                Estat = "Actiu",
+                order
+            )
+            database.insertTask(tasca)
+
+
             database.insertTask(tasca)
 
             // crear el bitmap
@@ -78,7 +90,8 @@ class CrearTasca : AppCompatActivity() {
                 e.printStackTrace()
             }
 
-            finish()
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
         }
 
 
